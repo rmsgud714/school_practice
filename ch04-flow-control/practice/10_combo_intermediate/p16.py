@@ -11,7 +11,13 @@
 N = int(input("N을 입력하세요: "))
 
 # 아래에 1~N 사이에서 모든 자릿수가 동일한 수를 출력하세요
+for num in range(1, N + 1):
+    # num을 문자열로 변환
+    num_str = str(num)
 
+    # set으로 1자릿수 확인
+    if len(set(num_str)) == 1:
+        print(num)
 
 """
 [실행 결과 예시] (N=200)
