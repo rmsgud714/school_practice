@@ -13,6 +13,19 @@ N = int(input("N을 입력하세요: "))
 
 # 아래에 1~N 사이의 증가수를 출력하세요 (두 자리 이상)
 
+# 반복문
+for num in range(10, N + 1):
+    # num을 문자열로 변환
+    num_str = str(num)
+    
+    # 이중 반복
+    for i in range(len(num_str) - 1):
+        # 현재 자릿수와 다음 자릿수를 비교
+        if num_str[i] >= num_str[i + 1]:
+            break
+    # 출력
+    else:
+        print(num)
 
 """
 [실행 결과 예시] (N=150)
