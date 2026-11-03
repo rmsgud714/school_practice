@@ -13,6 +13,36 @@ N = int(input("N을 입력하세요: "))
 
 # 아래에 1~N 사이의 친화수 쌍을 출력하세요
 
+# 1부터 N까지 반복
+for a in range(1, N + 1):
+    # 변수 초기화
+    sum_a = 0
+
+    # a 진약수 구하기
+    for factor_a in range(1, a):
+        if a % factor_a == 0:
+            # 약수 덧셈
+            sum_a += factor_a
+
+    # b 진약수 초기화
+    b = sum_a
+
+    # a가 b보다 더 큰지 확인
+    if a < b:
+        
+        # b의 진약수 합 초기화
+        sum_b = 0
+
+        # b의 진약수 구하기
+        for factor_b in range(1, b):
+            if b % factor_b == 0:
+                
+                # 약수 덧셈
+                sum_b += factor_b
+
+        # 서로의 약수 합이 같으면 출력
+        if sum_b == a:
+            print(f"({a}, {b})")
 
 """
 [실행 결과 예시] (N=10000)
