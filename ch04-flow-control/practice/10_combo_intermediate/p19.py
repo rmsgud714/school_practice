@@ -11,7 +11,18 @@
 N = int(input("항의 수를 입력하세요: "))
 
 # 아래에 교대 수열의 N항까지의 합을 구하세요
+# 변수 초기화
+total_sum = 0.0
 
+# 반복
+for index, num in enumerate(range(1, N + 1), start=1):
+    # 홀수 번째 항
+    if index % 2 == 1:
+        total_sum += 1 / num
+    else:  # 짝수 번째 항
+        total_sum -= 1 / num
+    # 결과 출력
+    print(f"{index}항까지의 합: {total_sum:.4f}")
 
 """
 [실행 결과 예시] (N=10)
