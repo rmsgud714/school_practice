@@ -12,7 +12,27 @@ N = int(input("N을 입력하세요: "))
 
 # 아래에 N을 연속된 자연수의 합으로 표현하는 모든 경우를 출력하세요
 
-
+# 첫 반복문
+for start in range(1, N):
+    # 변수 초기화
+    total = 0
+    list_total = [] 
+    
+    # 두번째 반복문
+    for end in range(start, N):
+        # 누적 덧셈
+        total += end
+        list_total.append(end)
+        
+        # N인 경우 출력
+        if total == N:
+            print(f"{N} = {' + '.join(map(str, list_total))}")
+            
+            
+        # 15 이상이 된 경우 반복문 종료
+        if total > N:
+            break
+        
 """
 [실행 결과 예시] (N=15)
 15 = 1 + 2 + 3 + 4 + 5
