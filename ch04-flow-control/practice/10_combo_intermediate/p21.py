@@ -10,9 +10,27 @@
 """
 
 n = int(input("높이(홀수) 입력: "))
-
+spcae = 1
 # 아래에 모래시계 패턴을 출력하는 코드를 작성하세요
 
+# 줄어드는 반복문
+for num in range(n, 1, -2):
+      # 별 출력
+      print(num * "*")
+      # 띄어쓰기 출력
+      print(spcae * " ", end="")
+      spcae += 1
+      
+spcae -= 1
+
+# 늘어가는 반복문
+for num in range(1, n+1, 2):
+      # 별 출력
+      print(num * "*")
+      # 띄어쓰기 출력
+      spcae -= 1
+      print(spcae * " ", end="")
+      
 
 """
 [실행 결과 예시] n = 7
