@@ -14,6 +14,24 @@ m = int(input("한 줄 숫자 개수 입력: "))
 
 # 아래에 지그재그 패턴을 출력하는 코드를 작성하세요
 
+# 반복
+num = 1
+
+# 반복
+for line in range(1, n + 1):
+
+    # line이 짝수인 경우 공백 출력
+    if line % 2 == 0:
+        print(" " * (m * 2), end="")
+
+    # 한 줄 숫자 개수만큼 출력
+    for _ in range(m):
+        print(num, end=" ")
+        num += 1
+        
+    # 공백 출력
+    print()
+
 
 """
 [실행 결과 예시] n = 4, m = 3
