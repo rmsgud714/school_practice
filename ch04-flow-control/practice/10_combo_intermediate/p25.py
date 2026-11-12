@@ -12,7 +12,41 @@
 n = int(input("높이(홀수) 입력: "))
 
 # 아래에 빈 다이아몬드를 출력하는 코드를 작성하세요
+# 위쪽 절반 출력
+for i in range(n // 2 + 1):
+    # 이중 for문 왼쪽 공백 출력
+    for j in range(n // 2 - i):
+        print(" ", end="")
 
+    # 맨 처음 반복할 때 별 하나 출력
+    if i == 0:
+        print("*")
+    else:
+        print("*", end="")
+
+        # 별 사이 공백
+        for j in range(2 * i - 1):
+            print(" ", end="")
+
+        print("*")
+
+# 아래쪽 절반 출력
+for i in range(n // 2 - 1, -1, -1):
+    # 왼쪽 공백
+    for j in range(n // 2 - i):
+        print(" ", end="")
+
+    # 꼭짓점이면 별 하나 출력
+    if i == 0:
+        print("*")
+    else:
+        print("*", end="")
+
+        # 별 사이 공백 출력
+        for j in range(2 * i - 1):
+            print(" ", end="")
+
+        print("*")
 
 """
 [실행 결과 예시] n = 7
