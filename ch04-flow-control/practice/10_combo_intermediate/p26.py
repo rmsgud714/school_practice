@@ -12,8 +12,24 @@
 n = int(input("줄 수 입력: "))
 
 # 아래에 파스칼 삼각형을 출력하는 코드를 작성하세요
-
-
+# 반복문
+for i in range(n):
+      # 출력할 처음 숫자
+      num = 1
+      # 공백 출력
+      print(" " * (n - i), end="")
+      # 이중 반복문
+      for j in range(i + 1):
+            
+            # 숫자 출력
+            print(num, end= " ")
+            
+            # num번째 값 = 이전 값 * (줄번호 - k) / (k + 1)
+            num = num * (i - j) // (j + 1)
+            
+      # 공백
+      print()
+      
 """
 [실행 결과 예시] n = 5
     1
