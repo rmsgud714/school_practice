@@ -11,7 +11,17 @@
 n = int(input("크기 입력: "))
 
 # 아래에 체스판 패턴을 출력하는 코드를 작성하세요
-
+# 반복
+for i in range(n):
+    # 반복
+    for j in range(n):
+        # 행과 열의 합이 짝수이면 #
+        if (i + j) % 2 == 0:
+            print("#", end=" ")
+        # 홀수이면 .
+        else:
+            print(".", end=" ")
+    print()
 
 """
 [실행 결과 예시] n = 5
