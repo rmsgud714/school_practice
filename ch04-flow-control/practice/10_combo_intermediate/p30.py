@@ -13,7 +13,19 @@
 n = int(input("크기 입력: "))
 
 # 아래에 숫자 테두리 사각형을 출력하는 코드를 작성하세요
+# 행 반복
+for i in range(n):
+    # 열 반복
+    for j in range(n):
 
+        # 가장 가까운 테두리까지의 거리 구하기
+        num = min(i, j, n - 1 - i, n - 1 - j)
+
+        # 테두리 번호 출력
+        print(num + 1, end=" ")
+
+    # 줄바꿈
+    print()
 
 """
 [실행 결과 예시] n = 5
