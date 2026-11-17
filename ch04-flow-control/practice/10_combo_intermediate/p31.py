@@ -19,7 +19,58 @@ balance = 100000
 
 # 아래에 ATM 시스템 코드를 작성하세요
 
+balance = 100000
 
+# ATM 메뉴 반복
+while True:
+    print("===== ATM =====")
+    print("1. 입금")
+    print("2. 출금")
+    print("3. 잔액조회")
+    print("4. 종료")
+
+    # 메뉴 선택
+    menu = int(input("메뉴 선택: "))
+
+    # 입금
+    if menu == 1:
+        amount = int(input("입금액: "))
+        # 0 초과인 경우
+        if amount > 0:
+            balance += amount
+            print(f"{amount}원이 입금되었습니다.")
+            print(f"현재 잔액: {balance}원")
+        else:
+            print("입금액은 양수만 입력할 수 있습니다.")
+
+    # 출금
+    elif menu == 2:
+        amount = int(input("출금액: "))
+
+        if amount <= 0:
+            print("출금액은 양수만 입력할 수 있습니다.")
+        elif amount > 500000:
+            print("1회 출금 한도(500000원)를 초과했습니다.")
+        elif amount > balance:
+            print(f"잔액이 부족합니다. 현재 잔액: {balance}원")
+        else:
+            balance -= amount
+            print(f"{amount}원이 출금되었습니다.")
+            print(f"현재 잔액: {balance}원")
+
+    # 잔액 조회
+    elif menu == 3:
+        print(f"현재 잔액: {balance}원")
+
+    # 종료
+    elif menu == 4:
+        print("이용해 주셔서 감사합니다.")
+        break
+
+    # 잘못된 메뉴
+    else:
+        print("잘못된 메뉴입니다.")
+        
 """
 [실행 결과 예시]
 ===== ATM =====
