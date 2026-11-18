@@ -20,6 +20,56 @@ max_books = 5  # 최대 대출 가능 권수
 
 # 아래에 도서관 대출 시스템 코드를 작성하세요
 
+while True:
+    print("===== 도서관 대출 시스템 =====")
+    print("1. 대출")
+    print("2. 반납")
+    print("3. 대출현황 조회")
+    print("4. 종료")
+
+    menu = int(input("메뉴 선택: "))
+
+    # 종료
+    if menu == 4:
+        print("이용해 주셔서 감사합니다.")
+        break
+
+    # 대출
+    elif menu == 1:
+        amount = int(input("대출할 권수: "))
+        
+        # 초과
+        if borrowed + amount > max_books:
+            print(f"대출 한도 초과! 추가 대출 가능 권수: {max_books - borrowed}권")
+        else:  # 대출, 출력
+            borrowed += amount
+            print(f"{amount}권을 대출했습니다. (현재 대출: {borrowed}권)")
+
+    # 반납
+    elif menu == 2:
+        amount = int(input("반납할 권수: "))
+
+        # 없는 경우
+        if borrowed == 0:
+            print("반납할 도서가 없습니다.")
+        # 반납 불가
+        elif amount > borrowed:
+            print(f"반납할 수 없습니다. 현재 대출 권수: {borrowed}권")
+        else:  # 반납 가능
+            borrowed -= amount
+            print(f"{amount}권을 반납했습니다. (현재 대출: {borrowed}권)")
+
+    # 대출현황 조회
+    elif menu == 3:
+        print(f"현재 대출 권수: {borrowed}권")
+
+    # 잘못된 메뉴
+    else:
+        print("잘못된 메뉴입니다.")
+    
+    
+    print()
+
 
 """
 [실행 결과 예시]
