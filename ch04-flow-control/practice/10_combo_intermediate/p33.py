@@ -23,6 +23,58 @@ rate = 1000      # 시간당 요금
 # 아래에 주차장 관리 시스템 코드를 작성하세요
 
 
+while True:
+    print("===== 주차장 관리 =====")
+    print("1. 입차")
+    print("2. 출차")
+    print("3. 현황 조회")
+    print("4. 종료")
+
+    # 메뉴 선택
+    menu = int(input("메뉴 선택: "))
+
+    # 입차
+    if menu == 1:
+        if parked < max_cars:
+            parked += 1
+            print(f"차량이 입차되었습니다. (현재 주차: {parked}/{max_cars}대)")
+        else:
+            print("주차 공간이 부족합니다.")
+
+    # 출차
+    elif menu == 2:
+        if parked > 0:
+            hour = int(input("주차 시간(시간 단위): "))
+
+            if hour < 1:
+                price = 0
+            else:
+                price = hour * rate
+
+            total_income += price
+            parked -= 1
+
+            print(f"주차 요금: {price}원")
+            print(f"차량이 출차되었습니다. (현재 주차: {parked}/{max_cars}대)")
+        else:
+            print("주차된 차량이 없습니다.")
+
+    # 현황 조회
+    elif menu == 3:
+        print(f"현재 주차: {parked}/{max_cars}대")
+        print(f"빈 자리: {max_cars - parked}대")
+        print(f"총 수입: {total_income}원")
+
+    # 종료
+    elif menu == 4:
+        print("시스템을 종료합니다.")
+        break
+
+    # 잘못된 메뉴
+    else:
+        print("잘못된 메뉴입니다.")
+        
+        
 """
 [실행 결과 예시]
 ===== 주차장 관리 =====
