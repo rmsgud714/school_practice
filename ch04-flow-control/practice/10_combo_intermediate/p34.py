@@ -26,6 +26,55 @@ qty3 = 0
 # 아래에 편의점 계산기 코드를 작성하세요
 
 
+while True:
+    print("===== 편의점 =====")
+    print("1. 삼각김밥 (1200원)")
+    print("2. 음료수 (1500원)")
+    print("3. 과자 (2000원)")
+
+    # 상품 선택
+    menu = int(input("상품 번호: "))
+    qty = int(input("수량: "))
+
+    # 상품별 수량 저장
+    if menu == 1:
+        qty1 += qty
+        print(f"삼각김밥 {qty}개 추가!")
+
+    elif menu == 2:
+        qty2 += qty
+        print(f"음료수 {qty}개 추가!")
+
+    elif menu == 3:
+        qty3 += qty
+        print(f"과자 {qty}개 추가!")
+
+    else:
+        print("잘못된 상품 번호입니다.")
+
+    # 쇼핑 계속 여부 확인
+    choice = int(input("계속 쇼핑하시겠습니까? (1:예 / 2:아니오): "))
+
+    if choice == 2:
+        break
+
+# 총 구매 금액 계산
+total = qty1 * price1 + qty2 * price2 + qty3 * price3
+
+# 계산서 출력
+print("\n===== 계산서 =====")
+
+if qty1 > 0:
+    print(f"삼각김밥 x {qty1} = {qty1 * price1}원")
+
+if qty2 > 0:
+    print(f"음료수 x {qty2} = {qty2 * price2}원")
+
+if qty3 > 0:
+    print(f"과자 x {qty3} = {qty3 * price3}원")
+
+print(f"총액: {total}원")
+
 """
 [실행 결과 예시]
 ===== 편의점 =====
