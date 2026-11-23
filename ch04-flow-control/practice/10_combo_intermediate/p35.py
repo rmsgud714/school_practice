@@ -20,7 +20,78 @@ current = 1  # 현재 층
 
 # 아래에 엘리베이터 시뮬레이션 코드를 작성하세요
 
+current = 1  # 현재 층
 
+# 엘리베이터 반복
+while True:
+    # 현재 층 출력
+    if current == -1:
+        print("현재 층: B1층")
+    else:
+        print(f"현재 층: {current}층")
+
+    # 이동할 층 입력
+    target = int(input("이동할 층 입력 (0: 종료): "))
+
+    # 종료
+    if target == 0:
+        print("엘리베이터를 종료합니다.")
+        break
+
+    # 범위 확인
+    if target < -1 or target > 10:
+        print("이동할 수 없는 층입니다.")
+        continue
+
+    # 같은 층 확인
+    if current == target:
+        print("현재 층과 같은 층입니다.")
+        continue
+
+    # 이동 과정 출력
+    print_value = ""
+
+    # 위로 이동
+    if current < target:
+        while current < target:
+            if current == -1:
+                current = 1
+            else:
+                current += 1
+
+            if current == -1:
+                floor = "B1층"
+            else:
+                floor = f"{current}층"
+
+            print_value += floor + " → "
+
+    # 아래로 이동
+    else:
+        while current > target:
+            if current == 1:
+                current = -1
+            else:
+                current -= 1
+
+            if current == -1:
+                floor = "B1층"
+            else:
+                floor = f"{current}층"
+
+            print_value += floor + " → "
+
+    # 마지막 화살표 제거
+    print_value = print_value[:-3]
+
+    # 이동 과정 출력
+    if current == -1:
+        print(f"2층 → 1층 → B1층" if target == -1 else print_value)
+        print("B1층에 도착했습니다.")
+    else:
+        print(print_value)
+        print(f"{current}층에 도착했습니다.")
+        
 """
 [실행 결과 예시]
 현재 층: 1층
