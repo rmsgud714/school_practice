@@ -21,6 +21,28 @@ minutes = int(input("타이머 시간(분): "))
 
 # 아래에 카운트다운 타이머 코드를 작성하세요
 
+# 초
+seconds = 0
+
+# 분, 초 0이상인 경우 반복
+while minutes > 0 or seconds > 0:
+
+    # 현재 분, 초 출력
+    print(f"{minutes}분 {seconds:02}초")
+
+    # 초 감소
+    seconds -= 1
+
+    # 초가 0보다 작아지면 분 감소
+    if seconds < 0:
+        minutes -= 1
+        seconds = 59
+
+# 마지막 0분 0초 출력
+print(f"{minutes}분 {seconds:02}초")
+print("타이머 종료!")
+
+
 
 """
 [실행 결과 예시]
