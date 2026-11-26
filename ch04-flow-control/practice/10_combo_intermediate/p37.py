@@ -20,6 +20,48 @@ last_called = 0   # 마지막 호출 번호
 
 # 아래에 은행 대기번호 시스템 코드를 작성하세요
 
+# 메뉴 반복
+while True:
+    
+    print("===== 은행 대기번호 =====")
+    print("1. 번호 발급")
+    print("2. 다음 고객 호출")
+    print("3. 대기인원 확인")
+    print("4. 종료")
+
+    # 메뉴 선택
+    menu = int(input("메뉴 선택: "))
+
+    # 번호 발급
+    if menu == 1:
+        last_issued += 1
+        print(f"대기번호 {last_issued}번이 발급되었습니다.")
+
+    # 다음 고객 호출
+    elif menu == 2:
+        
+        if last_issued - last_called > 0:
+            last_called += 1
+            # 창구
+            counter = (last_called % 3) + 1
+            print(f"{counter}번 창구: {last_called}번 고객님, 오세요!")
+        else:
+            print("대기 중인 고객이 없습니다.")
+
+    # 대기인원 확인
+    elif menu == 3:
+        # 웨이팅
+        waiting = last_issued - last_called
+        print(f"현재 대기인원: {waiting}명")
+
+    # 종료
+    elif menu == 4:
+        print("시스템을 종료합니다.")
+        break
+
+    # 잘못된 메뉴
+    else:
+        print("잘못된 메뉴입니다.")
 
 """
 [실행 결과 예시]
