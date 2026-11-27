@@ -19,6 +19,34 @@ m = int(input("열 수: "))
 
 # 아래에 자리 배치 코드를 작성하세요
 
+# 필요한 행 수 계산
+row = n // m
+
+# 행 += 1
+if n % m != 0:
+    row += 1
+
+# 인원 카운트 초기화
+count = 0
+
+# 행 반복, 출력
+for i in range(row):
+    
+    print(f"[{i + 1}행]", end=" ")
+
+    # 열 반복, 출력
+    for column in range(m):
+        if count < n:
+            count += 1
+            
+            print(f"{i + 1}-{column + 1}", end="  ")
+
+    # 줄바꿈
+    print()
+
+# 출력
+print(f"총 {row}행 배치 완료 ({n}명)")
+
 
 """
 [실행 결과 예시]
