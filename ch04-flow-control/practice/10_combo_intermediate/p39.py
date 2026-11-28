@@ -19,6 +19,32 @@ target_temp = int(input("목표 온도: "))
 
 # 아래에 온도 조절기 코드를 작성하세요
 
+# 이미 같은 목표 온도인지 확인
+if current_temp == target_temp:
+    print("이미 목표 온도입니다.")
+
+# 아닌 경우 난방 모드
+elif current_temp < target_temp:
+    print("난방 모드를 시작합니다.")
+
+    # 목표 온도까지 반복
+    while current_temp < target_temp:
+        print(f"현재 온도: {current_temp}도 → {current_temp + 1}도")
+        current_temp += 1
+
+    print(f"목표 온도 {target_temp}도에 도달했습니다!")
+
+# 냉방 모드
+else:
+    print("냉방 모드를 시작합니다.")
+
+    # 목표 온도까지 반복
+    while current_temp > target_temp:
+        print(f"현재 온도: {current_temp}도 → {current_temp - 1}도")
+        current_temp -= 1
+
+    print(f"목표 온도 {target_temp}도에 도달했습니다!")
+
 
 """
 [실행 결과 예시]
